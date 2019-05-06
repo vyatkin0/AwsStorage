@@ -1,0 +1,76 @@
+<div class="container body-content">
+  <h1>AWS Storage</h1>
+
+  <hr>
+  <h2>Set item</h2>
+  <div class="form-group">
+      <label for="itemKey">Item key</label>
+      <input type="text" class="form-control" id="itemKey"
+              required
+              [(ngModel)]="itemKey" name="itemKey">
+  </div>
+
+  <div class="form-group">
+    <label for="itemValue">Item value</label>
+    <input type="text"  class="form-control" id="itemValue" required
+            [(ngModel)]="itemValue" name="itemValue">
+  </div>
+
+  <div class="btn-toolbar">
+  <button type="button" class="btn btn-secondary" (click)="setItem();">Set</button>
+  </div>
+
+  <div class="alert alert-danger" role="alert" [hidden]="!errorMessage">
+    {{errorMessage}}
+  </div>
+
+  <div class="alert alert-success" role="alert" [hidden]="!lastResult">
+    {{lastResult}}
+  </div>
+
+  <hr>
+  <h2>Get or delete item</h2>
+
+  <div class="form-group">
+    <label for="getItemKey">Item key</label>
+    <input type="text" class="form-control" id="getItemKey"
+            required
+            [(ngModel)]="getItemKey" name="getItemKey">
+  </div>
+
+  <div class="btn-toolbar">
+  <button type="button" class="btn btn-secondary mr-1" (click)="getItem(false);">Get</button>
+  <button type="button" class="btn btn-secondary" (click)="getItem(true);">Delete</button>
+  </div>
+
+  <div class="alert alert-danger" role="alert" [hidden]="!getErrorMessage">
+    {{getErrorMessage}}
+  </div>
+
+  <div class="alert alert-success" role="alert" [hidden]="!getLastResult">
+    {{getLastResult}}
+  </div>
+
+  <hr>
+  <h2>List or clear items</h2>
+
+  <div class="form-group">
+    <label for="itemPrefix">Prefix</label>
+    <input type="text" class="form-control" id="itemPrefix"
+            required
+            [(ngModel)]="itemPrefix" name="itemPrefix">
+  </div>
+
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-secondary mr-1" (click)="listItems();">List</button>
+    <button type="button" class="btn btn-secondary" (click)="clearItems();">Clear</button>
+  </div>
+
+  <div class="alert alert-danger" role="alert" [hidden]="!listErrorMessage">
+      {{listErrorMessage}}
+  </div>
+
+  <div class="alert alert-success" role="alert" [hidden]="!listLastResult">
+      {{listLastResult}}
+  </div>
+</div>
